@@ -1,9 +1,10 @@
-import { React, useState } from 'react'
+import { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Button } from 'react-bootstrap'
 import { Alert } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 function Register() {
     const [user, setUser] = useState({
         "email": "",
@@ -49,8 +50,9 @@ function Register() {
         <>
             <section className='m-5'>
                 <div className="container d-flex flex-column align-items-center justify-content-center border border-primary border-2 rounded-start rounded-end p-3 ">
+                <h1 className="h1 text-center my-5">Create your account</h1>
                     {alert && <Alert variant='warning'>{alert}</Alert>}
-                    <Form className='d-flex flex-column '>
+                    <Form className="w-75">
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" name="email"
@@ -59,7 +61,7 @@ function Register() {
 
 
                         <Row className="mb-3">
-                            <Form.Group as={Col} md="4" controlId="validationCustom01">
+                            <Form.Group as={Col} lg={6} md="4" controlId="validationCustom01">
                                 <Form.Label>First name</Form.Label>
                                 <Form.Control
                                     required
@@ -71,7 +73,7 @@ function Register() {
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group as={Col} md="4" controlId="validationCustom02">
+                            <Form.Group as={Col} lg={6} md="4" controlId="validationCustom02">
                                 <Form.Label>Last name</Form.Label>
                                 <Form.Control
                                     required
@@ -95,7 +97,10 @@ function Register() {
                         </Form.Group>
 
                     </Form>
-                        <Button type="submit" onClick={handleSubmission} className='btn-lg rounded-pill'>Register</Button>
+                    <Button type="submit" onClick={handleSubmission} className='btn-lg rounded-pill'>Register</Button>
+                    <div className="mt-5 text-center">
+                        <span>Already have an account? <Link to="/login">Login</Link></span>
+                    </div>
                 </div>
             </section>
         </>
