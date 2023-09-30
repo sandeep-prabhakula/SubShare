@@ -1,21 +1,19 @@
 import React from 'react'
-import { ListGroup } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 function SubscriptionCard(props) {
     return (
         <div className="col-6 col-md-4 col-lg-3 m-3 p-2 border border-primary border-2 rounded-start rounded-end" key={props.subscription.id}>
             <div className='d-flex justify-content-center align-items-center'>
-
-                <h2 >{props.subscription.subscriptionName}</h2>
-
-
+                <Link className='text-decoration-none' to={`/brand/${props.subscription.subscriptionName}`}>
+                    <h2 >{props.subscription.subscriptionName}</h2>
+                </Link>
             </div>
             <hr />
-            <div className='d-flex flex-row justify-content-center align-items-center'>
-
-                <p className='fw-bold'>{props.subscription.price}</p>
-                <small className='text-body-tertiary'>/ month</small>
-            </div>
+            <Row>
+                <p className='fw-bold'>{props.subscription.price}<span className='small text-body-tertiary'>/ month</span></p>
+            </Row>
         </div>
     )
 }

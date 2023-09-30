@@ -6,7 +6,7 @@ function CarousalCard(props) {
         <div className="col-6 col-md-4 col-lg-3 m-3 p-2 border border-primary border-2 rounded-start rounded-end" key={props.subscription.id}>
             <div className='d-flex justify-content-center align-items-center'>
             {/* // TODO:- add the navigation  */}
-                <Link className='text-decoration-none' to={`/`}>
+                <Link className='text-decoration-none' to={`/brand/${props.subscription.subscriptionName}`}>
                     <h2 >{props.subscription.subscriptionName}</h2>
                 </Link>
 

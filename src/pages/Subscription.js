@@ -1,4 +1,4 @@
-import React from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
 import SubscriptionCard from '../components/SubscriptionCard'
 
 function Subscription() {
@@ -30,17 +30,18 @@ function Subscription() {
         },
     ]
     return (
-        <React.Fragment>
-            <div className='container d-flex flex-column justify-content-center align-items-center mt-5 mb-5'>
-                <h1 className='display-1 fw-medium'>Subscriptions Available</h1>
-                <div className='row mt-5 p-2'>
-
-                    {subscriptions.map((item, index) => {
-                        return <SubscriptionCard subscription={item}/>
-                    })}
-                </div>
-            </div>
-        </React.Fragment>
+        <Container fluid className="vh-100 p-5">
+            <h1 className='display-1 fw-medium text-center'>Subscriptions Available</h1>
+            <Row className='m-0 p-0 mt-5'>
+                <Col lg={10} className='m-auto m-0 p-0'>
+                    <Row className='justify-content-center'>
+                        {subscriptions.map((item, index) => {
+                            return <SubscriptionCard subscription={item} />
+                        })}
+                    </Row>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

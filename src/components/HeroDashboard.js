@@ -1,6 +1,5 @@
-import React from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
 import CarousalCard from './CarousalCard'
-import { Link } from 'react-router-dom'
 
 function HeroDashboard() {
     const subscriptions = [
@@ -31,23 +30,18 @@ function HeroDashboard() {
         },
     ]
     return (
-        <>
-            <div className="container d-flex flex-column justify-content-center align-items-center mt-5 ">
-
-                <h1 className='display-1 fw-medium mb-5'>Services available <br /> for co-subscription</h1>
-                <div className="row mt-5 p-2 mb-5">
-
-
-                        {
-                            subscriptions.map((item, index) => {
-                                
-                                return <CarousalCard subscription={item} />
-
-                            })
-                        }
-                </div>
-            </div>
-        </>
+        <Container fluid className="mt-5 vh-100">
+            <h1 className='text-center display-1 fw-medium mb-5'>Services available <br /> for co-subscription</h1>
+            <Row className="m-0 p-0">
+                <Col lg={10} className="m-auto m-0 p-0">
+                    <Row className="justify-content-center">
+                        {subscriptions.map((item, index) => {
+                            return <CarousalCard subscription={item} />
+                        })}
+                    </Row>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

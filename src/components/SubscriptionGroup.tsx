@@ -45,8 +45,11 @@ export default function SubscriptionCard(): JSX.Element {
             </Row>
         </Col>
         <Col lg="auto" className="align-self-center">
-            <Row>
+            <Row className="align-items-center">
                 <span className="h1">&#8377; 40.00</span>
+            </Row>
+            <Row>
+                <span className="small">/ month</span>
             </Row>
             <Row className="mt-3">
                 <Button variant="primary">Subscribe</Button>
