@@ -4,6 +4,8 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Header from './components/Header';
+import { Component } from 'react';
+import Subscription from './pages/Subscription';
 import Subscriptions from './pages/Subscriptions';
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
           <Route path={`/`} Component={Home}/>
           <Route path={`/register`} Component={Register}/>
           <Route path={`/login`} Component={Login}/>
+          <Route path={`/subscription`} Component={Subscription}/>
           <Route path={`/subscriptions`} Component={Subscriptions}/>
         </Routes>
       </Router>
