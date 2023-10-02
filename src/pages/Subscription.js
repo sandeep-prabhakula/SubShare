@@ -1,5 +1,5 @@
 import React from 'react'
-import SubscriptionCard from '../components/SubscriptionCard'
+import SmallSubscriptionCard from '../components/SmallSubscriptionCard'
 
 function Subscription() {
     const subscriptions = [
@@ -36,7 +36,7 @@ function Subscription() {
                 <div className='row mt-5 p-2'>
 
                     {subscriptions.map((item, index) => {
-                        return <SubscriptionCard subscription={item}/>
+                        return <SmallSubscriptionCard subscription={item}/>
                     })}
                 </div>
             </div>

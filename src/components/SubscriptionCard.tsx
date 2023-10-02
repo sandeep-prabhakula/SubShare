@@ -1,12 +1,13 @@
 import { Button, Col, Row } from "react-bootstrap";
 import { CheckCircle, Person, PersonFill, ShareFill } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
 
 export default function SubscriptionCard(): JSX.Element {
-    return <Row className="p-3 mt-3" style={{ border: "1px solid black"}}>
+    return <Row className="p-3 mt-3" style={{ border: "1px solid black" }}>
         <Col>
             <Row className="mb-3">
                 <Col lg="auto">
-                    <img src="https://picsum.photos/100" alt="profile" style={{ width: 60, height: 60, borderRadius: 50 }}/>
+                    <img src="https://picsum.photos/100" alt="profile" style={{ width: 60, height: 60, borderRadius: 50 }} />
                 </Col>
                 <Col>
                     <span className="h4">Youtube Premium</span>
@@ -17,7 +18,7 @@ export default function SubscriptionCard(): JSX.Element {
             </Row>
             <Row className="mt-1">
                 <Col lg="auto" className="m-0 p-0">
-                    <CheckCircle/>
+                    <CheckCircle />
                 </Col>
                 <Col lg="auto" className="m-0 p-0 ms-3">
                     <span className="small">Verified account</span>
@@ -25,7 +26,7 @@ export default function SubscriptionCard(): JSX.Element {
             </Row>
             <Row className="mt-1">
                 <Col lg="auto" className="m-0 p-0">
-                    <ShareFill/>
+                    <ShareFill />
                 </Col>
                 <Col lg="auto" className="m-0 p-0 ms-3">
                     <span className="small">5+ Active shares</span>
@@ -33,11 +34,11 @@ export default function SubscriptionCard(): JSX.Element {
             </Row>
             <Row className="mt-3 p-0 align-items-center">
                 <Col lg="auto" className="m-0 p-0">
-                    <PersonFill size={20}/>
-                    <Person size={20}/>
-                    <Person size={20}/>
-                    <Person size={20}/>
-                    <Person size={20}/>
+                    <PersonFill size={20} />
+                    <Person size={20} />
+                    <Person size={20} />
+                    <Person size={20} />
+                    <Person size={20} />
                 </Col>
                 <Col className="m-0 p-0 ms-3">
                     <span className="small fw-bold">4 Remaning slots</span>
@@ -49,7 +50,10 @@ export default function SubscriptionCard(): JSX.Element {
                 <span className="h1">&#8377; 40.00</span>
             </Row>
             <Row className="mt-3">
-                <Button variant="primary">Subscribe</Button>
+                {/* Added route to detailed subscription */}
+                <Link to={`/youtube`}>
+                    <Button variant="primary">Subscribe</Button>
+                </Link>
             </Row>
         </Col>
     </Row>

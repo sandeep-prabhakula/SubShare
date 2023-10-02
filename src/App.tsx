@@ -7,6 +7,8 @@ import Header from './components/Header';
 import { Component } from 'react';
 import Subscription from './pages/Subscription';
 import Subscriptions from './pages/Subscriptions';
+import DetailedSubscription from './pages/DetailedSubscription';
+import Payment from './pages/Payment';
 function App() {
   return (
     <>
@@ -18,6 +20,8 @@ function App() {
           <Route path={`/login`} Component={Login}/>
           <Route path={`/subscription`} Component={Subscription}/>
           <Route path={`/subscriptions`} Component={Subscriptions}/>
+          <Route path={`/youtube`} Component = {DetailedSubscription}/>
+          <Route path={`/payment`} Component = {Payment}/>
         </Routes>
       </Router>
     </>
