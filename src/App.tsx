@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Header from './components/Header';
 import Subscription from './pages/Subscription';
 import SubscriptionGroups from './pages/SubscriptionGroups';
+import CreateSubscription from './pages/CreateSubscription';
 function App() {
   return (
     <>
@@ -17,6 +18,7 @@ function App() {
           <Route path={`/login`} Component={Login}/>
           <Route path={`/subscriptions`} Component={Subscription}/>
           <Route path={`/brand/:brandName`} Component={SubscriptionGroups}/>
+          <Route path={`/create-subscription`} Component={CreateSubscription}/>
         </Routes>
       </Router>
     </>

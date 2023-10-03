@@ -16,7 +16,7 @@ function SubscriptionSharing() {
                                         I have a subscription and would like to offer available slots to save money.
                                     </Card.Text>
                                     {/* TODO : Add navigation */}
-                                    <Link to={`/`} className='btn btn-primary rounded-pill'>
+                                    <Link to={`/create-subscription`} className='btn btn-primary rounded-pill'>
                                         Share
                                     </Link>
                                 </Card.Body>
