@@ -1,8 +1,8 @@
 import { Col, Container, Form, Row } from "react-bootstrap";
-import SubscriptionCard from "../components/SubscriptionCard";
+import SubscriptionCard from "../components/SubscriptionGroup";
 
-export default function Subscriptions(): JSX.Element {
-    return <Container fluid>
+export default function SubscriptionGroups(): JSX.Element {
+    return <Container fluid className="p-5">
         <Row className="justify-content-center">
             <Col lg={3}>
                 <Row className="p-3 mt-3" style={{ border: "1px solid black" }}>
