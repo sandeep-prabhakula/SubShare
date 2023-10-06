@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Button, Col, Container, Row, Form } from "react-bootstrap";
-import { DashCircleFill, People, PeopleFill, PlusCircleFill, Wallet, WalletFill } from "react-bootstrap-icons";
+import { DashCircleFill, People, PeopleFill, PlusCircleFill, WalletFill } from "react-bootstrap-icons";
+import { useNavigate } from "react-router-dom";
 
 
 function Brands(): JSX.Element {
@@ -178,6 +179,7 @@ function SubscriptionPrice(): JSX.Element {
 
 function ShareYourLoginDetails(): JSX.Element {
 
+    const navigate = useNavigate();
     return <Row className="m-0 p-0 mt-3 p-5" style={{ border: "1px solid black" }}>
         <Col>
             <Row>
@@ -228,7 +230,7 @@ function ShareYourLoginDetails(): JSX.Element {
                     <span>I provide reliable information and identity. I agree to Subshare <a href="#" className="text-decoration-none">Terms and Conditions</a> and Stripe <a href="#" className="text-decoration-none">Terms of Service</a></span>
                 </Col>
             </Row>
-            <Button className="mt-4">Create and share</Button>
+            <Button className="mt-4" onClick={() => navigate("/my-account")}>Create and share</Button>
         </Col>
     </Row>
 }
