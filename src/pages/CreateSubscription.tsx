@@ -227,10 +227,11 @@ function ShareYourLoginDetails(): JSX.Element {
                     />
                 </Col>
                 <Col>
+                {/* eslint-disable-next-line */}
                     <span>I provide reliable information and identity. I agree to Subshare <a href="#" className="text-decoration-none">Terms and Conditions</a> and Stripe <a href="#" className="text-decoration-none">Terms of Service</a></span>
                 </Col>
             </Row>
-            <Button className="mt-4" onClick={() => navigate("/my-account")}>Create and share</Button>
+            <Button className="mt-4" onClick={() => navigate("/subscription-success")}>Create and share</Button>
         </Col>
     </Row>
 }

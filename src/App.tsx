@@ -18,6 +18,7 @@ import IdentityAndVerfication from './pages/UserAccount/IdentityAndVerification'
 import PaymentCards from './pages/UserAccount/PaymentCards';
 import ConnectedBankAccount from './pages/UserAccount/ConnectedBankAccount';
 import ChangePassword from './pages/UserAccount/ChangePassword';
+import SubscriptionSuccess from './pages/SubscriptionSuccess';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             <Route path={`connected-bank-account`} Component={ConnectedBankAccount}/>
             <Route path={`change-password`} Component={ChangePassword}/>
           </Route>
+          <Route path={`/subscription-success`} Component={SubscriptionSuccess}/>
         </Routes>
       </Router>
     </>
