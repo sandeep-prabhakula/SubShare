@@ -19,6 +19,7 @@ import PaymentCards from './pages/UserAccount/PaymentCards';
 import ConnectedBankAccount from './pages/UserAccount/ConnectedBankAccount';
 import ChangePassword from './pages/UserAccount/ChangePassword';
 import SubscriptionSuccess from './pages/SubscriptionSuccess';
+import LoginDetails from './pages/LoginDetails';
 
 function App() {
   return (
@@ -45,6 +46,9 @@ function App() {
             <Route path={`change-password`} Component={ChangePassword}/>
           </Route>
           <Route path={`/subscription-success`} Component={SubscriptionSuccess}/>
+
+          {/* Dummy route for testing */}
+          <Route path={`/login-details`} Component={LoginDetails}/>
         </Routes>
       </Router>
     </>
