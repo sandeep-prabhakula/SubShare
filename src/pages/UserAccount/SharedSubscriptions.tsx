@@ -101,7 +101,7 @@ export default function SharedSubscriptions(): JSX.Element {
             <Row className="m-0 p-0 mt-3">
                 <Col>
                     <Tabs
-                        defaultActiveKey="profile"
+                        defaultActiveKey="login-details"
                         id="uncontrolled-tab-example"
                         className="mb-3"
                         fill
