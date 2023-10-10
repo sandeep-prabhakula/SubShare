@@ -1,7 +1,11 @@
-import { Button, Container, Row, Col, Badge } from "react-bootstrap";
+import { Button, Container, Row, Col, Badge, Tab, Tabs } from "react-bootstrap";
 import SharedSubscriptionCard from "../../components/SharedSubscriptionCard";
 import { useState } from "react";
 import { ArrowLeft, ChatDotsFill, Clipboard } from "react-bootstrap-icons";
+import LoginDetails from "../../components/LoginDetails";
+import Subscribers from "../../components/Subscribers";
+import Payments from "../../components/Payments";
+import Management from "../../components/Management";
 
 export default function SharedSubscriptions(): JSX.Element {
     const [showDetails, setShowDetails] = useState(false);
@@ -58,7 +62,7 @@ export default function SharedSubscriptions(): JSX.Element {
                         <Button variant="link" className="m-0 p-0 py-1 px-2 text-decoration-none">
                             <Row className="align-items-center m-0 p-0">
                                 <Col lg="auto" className="m-0 p-0">
-                                    <Clipboard/>
+                                    <Clipboard />
                                 </Col>
                                 <Col lg="auto" className="m-0 p-0 ms-2">
                                     <span>Copy the invitation</span>
@@ -87,15 +91,35 @@ export default function SharedSubscriptions(): JSX.Element {
                     <Row className="m-0 p-0">
                         <span className="fw-bold d-block text-center">Number of Subscribers</span>
                         <div className="mt-2 text-center">
-                        <span className="fw-bold text-primary h3">2</span>
-                        <span className="fw-bold h3">/5</span>
+                            <span className="fw-bold text-primary h3">2</span>
+                            <span className="fw-bold h3">/5</span>
                         </div>
                         <span className="d-block text-center">subscribers</span>
                     </Row>
                 </Col>
             </Row>
-            <Row className="m-0 p-0">
-                
+            <Row className="m-0 p-0 mt-3">
+                <Col>
+                    <Tabs
+                        defaultActiveKey="profile"
+                        id="uncontrolled-tab-example"
+                        className="mb-3"
+                        fill
+                    >
+                        <Tab eventKey="login-details" title="Login details">
+                            <LoginDetails/>
+                        </Tab>
+                        <Tab eventKey="subscribers" title="Subscribers">
+                            <Subscribers/>
+                        </Tab>
+                        <Tab eventKey="payments" title="Payments">
+                           <Payments/>
+                        </Tab>
+                        <Tab eventKey="management" title="Management">
+                           <Management/>
+                        </Tab>
+                    </Tabs>
+                </Col>
             </Row>
         </>}
     </Container>
