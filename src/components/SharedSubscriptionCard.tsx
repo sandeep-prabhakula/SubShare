@@ -1,7 +1,12 @@
 import { Button, Col, Row } from "react-bootstrap";
 import { ChatDotsFill, Person, PersonFill } from "react-bootstrap-icons";
 
-export default function SharedSubscriptionCard(): JSX.Element {
+type SharedSubscriptionCardProps = {
+    onViewDetails?: () => void;
+    onViewChat?: () => void;
+}
+
+export default function SharedSubscriptionCard(props: SharedSubscriptionCardProps): JSX.Element {
     return <Row className="p-3 mb-3" style={{ border: "1px solid black" }}>
         <Col>
             <Row className="mb-3">
@@ -43,10 +48,10 @@ export default function SharedSubscriptionCard(): JSX.Element {
             <Row className="mt-3 justify-content-end">
                 {/* Added route to detailed subscription */}
                 <Col lg="auto">
-                    <Button variant="primary">View detials</Button>
+                    <Button variant="primary" onClick={props.onViewDetails}>View detials</Button>
                 </Col>
                 <Col lg="auto">
-                    <Button variant="primary">
+                    <Button variant="primary" onClick={props.onViewChat}>
                         <Row className="align-items-center px-3">
                         <Col lg="auto" className="m-0 p-0">
                         <ChatDotsFill />

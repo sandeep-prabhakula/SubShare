@@ -16,7 +16,7 @@ function LoginDetails() {
                     {/* left navigation menu starts */}
                     <Col className='m-2 p-2 border border-dark rounded-end rounded-start'>
                         <ShareFill size={20} className='m-2' />
-
+        
                         <span>
                             Shared Subscription
                         </span>
