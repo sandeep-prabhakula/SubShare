@@ -1,4 +1,0 @@
-{
-    "navigationFallback": "/index.html",
-    "exclude": ["/static/*"]
-}
