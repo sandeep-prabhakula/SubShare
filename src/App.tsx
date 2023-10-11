@@ -20,6 +20,7 @@ import ConnectedBankAccount from './pages/UserAccount/ConnectedBankAccount';
 import ChangePassword from './pages/UserAccount/ChangePassword';
 import SubscriptionSuccess from './pages/SubscriptionSuccess';
 import LoginDetails from './pages/LoginDetails';
+import About from './pages/About';
 
 function App() {
   return (
@@ -49,6 +50,8 @@ function App() {
 
           {/* Dummy route for testing */}
           <Route path={`/login-details`} Component={LoginDetails}/>
+
+          <Route path={`/about`} Component={About}/>
         </Routes>
       </Router>
     </>
