@@ -14,7 +14,7 @@ export default function Header(): JSX.Element {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ms-auto">
           <Nav.Link as={Link} to="/subscriptions" active={pathname === "/subscriptions" } className="me-5">Subscriptions</Nav.Link>
-          <Nav.Link as={Link} to="/login" active={pathname === "/login" }>Login</Nav.Link>
+          <Nav.Link as={Link} to="/login" active={pathname === "/login" } className="me-5">Login</Nav.Link>
           <Nav.Link as={Link} to="/about" active={pathname === "/about" }>About</Nav.Link>
         </Nav>
       </Navbar.Collapse>
