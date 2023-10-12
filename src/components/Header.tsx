@@ -8,7 +8,7 @@ export default function Header(): JSX.Element {
     return <Navbar collapseOnSelect expand="lg" bg="primary" data-bs-theme="dark">
     <Container>
       <Navbar.Brand as={Link} to="/">
-        <img src="/logo192.png" alt="logo" width={50} height={50}/>
+        <img src="/logo192.png" alt="logo" width={50} height={50}/>Subshare
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
