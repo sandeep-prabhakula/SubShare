@@ -36,7 +36,7 @@ function HeroDashboard() {
                 <Col lg={10} className="m-auto m-0 p-0">
                     <Row className="justify-content-center">
                         {subscriptions.map((item, index) => {
-                            return <CarousalCard subscription={item} />
+                            return <CarousalCard key={index} subscription={item} />
                         })}
                     </Row>
                 </Col>
