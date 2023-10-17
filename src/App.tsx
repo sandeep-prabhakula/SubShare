@@ -23,6 +23,7 @@ import About from './pages/About';
 import Footer from './components/Footer';
 
 function App() {
+
   return (
     <>
       <Router>

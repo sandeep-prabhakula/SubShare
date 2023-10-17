@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebaseConfig';
 
 function Login() {
     const [user, setUser] = useState({
@@ -11,13 +13,13 @@ function Login() {
 
     const regex = /^[ A-Za-z0-9_@./#&+-]*$/
 
-    const [confirmPassword, setConfirmPassword] = useState("")
+    // const [confirmPassword, setConfirmPassword] = useState("")
 
     const [alert, SetAlert] = useState('')
 
-    const confirmPasswordChangeListener = (e: any) => {
-        setConfirmPassword(e.target.value)
-    }
+    // const confirmPasswordChangeListener = (e: any) => {
+    //     setConfirmPassword(e.target.value)
+    // }
 
     // loading the object with the user credentials
     const onValueChangeListener = (e: any) => {
@@ -27,14 +29,14 @@ function Login() {
         }))
     }
 
-    const handleSubmission = (e: any) => {
+    const handleSubmission = async (e: any) => {
         e.preventDefault()
 
         if (regex.test(user.password)
-            && user.password.length >= 8
-            && confirmPassword === user.password) {
-            // TODO: verify user and add to the DB
-            console.log(user)
+            && user.password.length >= 8) {
+            
+                const userDetail = await signInWithEmailAndPassword(auth, user.email, user.password);
+                console.log(userDetail);
         }
         else {
             SetAlert('Invalid Credentials please verify your details')

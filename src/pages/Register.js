@@ -1,16 +1,19 @@
-import { useState } from 'react'
-import Form from 'react-bootstrap/Form'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import { Button } from 'react-bootstrap'
-import { Alert } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { Button } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebaseConfig';
+
 function Register() {
     const [user, setUser] = useState({
-        "email": "",
-        "firstName": "",
-        "lastName": "",
-        "password": "",
+        email: "",
+        firstName: "",
+        lastName: "",
+        password: "",
     })
 
     const regex = /^[ A-Za-z0-9_@./#&+-]*$/
@@ -31,14 +34,23 @@ function Register() {
         }))
     }
 
-    const handleSubmission = (e) => {
+    const handleSubmission = async (e) => {
+        console.log("Button clicked");
         e.preventDefault()
 
         if (regex.test(user.password)
             && user.password.length >= 8
             && confirmPassword === user.password) {
-            // TODO: verify user and add to the DB
-            console.log(user)
+            console.log("fields are validated");
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, user.email, user.password);
+                // const user = userCredential.user;
+                // console.log(user);
+                console.log(userCredential);
+            } catch(err) {
+                console.log(err);
+            }
+
         }
         else {
             SetAlert('Invalid Credentials please verify your details')
