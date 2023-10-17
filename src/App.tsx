@@ -20,6 +20,7 @@ import ConnectedBankAccount from './pages/UserAccount/ConnectedBankAccount';
 import ChangePassword from './pages/UserAccount/ChangePassword';
 import SubscriptionSuccess from './pages/SubscriptionSuccess';
 import About from './pages/About';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
           <Route path={`/subscription-success`} Component={SubscriptionSuccess}/>
           <Route path={`/about`} Component={About}/>
         </Routes>
+        <Footer/>
       </Router>
     </>
   );
