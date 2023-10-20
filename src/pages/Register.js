@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Button } from 'react-bootstrap';
+import { Button, InputGroup } from 'react-bootstrap';
 import { Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -14,9 +14,9 @@ function Register() {
         firstName: "",
         lastName: "",
         password: "",
+        phoneNumber: ""
     })
-
-    const regex = /^[ A-Za-z0-9_@./#&+-]*$/
+    const regex = /^[ A-Za-z0-9_@*./#&+-]*$/
 
     const [confirmPassword, setConfirmPassword] = useState("")
 
@@ -33,22 +33,40 @@ function Register() {
             [e.target.name]: e.target.value
         }))
     }
-
+    const onMobilechangeListener = (e)=>{
+        setUser((prev)=>({
+            ...prev,
+            [e.target.name]:`+91${e.target.value}`
+        }))
+    }
     const handleSubmission = async (e) => {
-        console.log("Button clicked");
         e.preventDefault()
-
+        SetAlert('')
         if (regex.test(user.password)
             && user.password.length >= 8
-            && confirmPassword === user.password) {
-            console.log("fields are validated");
-            try {
-                const userCredential = await createUserWithEmailAndPassword(auth, user.email, user.password);
-                // const user = userCredential.user;
-                // console.log(user);
-                console.log(userCredential);
-            } catch(err) {
+            && confirmPassword === user.password
+            && user.phoneNumber.length===13
+            && user.phoneNumber.startsWith('+91')) {
+                try {
+                const headerDict = {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                }
+                // const userCredential = await createUserWithEmailAndPassword(auth, user.email, user.password);
+                // console.log(userCredential);
+                const res = await fetch('https://subshare-api.azurewebsites.net/auth/signup', {
+                    method: 'POST',
+                    body: JSON.stringify(user),
+                    headers: new Headers(headerDict)
+                })
+                const userDetail = await res.json()
+                // console.log(userDetail)
+                if(userDetail!==null){
+                    SetAlert('Registration Successful')
+                }
+            } catch (err) {
                 console.log(err);
+                SetAlert('something went wrong')
             }
 
         }
@@ -62,7 +80,7 @@ function Register() {
         <>
             <section className='m-5'>
                 <div className="container d-flex flex-column align-items-center justify-content-center border border-primary border-2 rounded-start rounded-end p-3 ">
-                <h1 className="h1 text-center my-5">Create your account</h1>
+                    <h1 className="h1 text-center my-5">Create your account</h1>
                     {alert && <Alert variant='warning'>{alert}</Alert>}
                     <Form className="w-75">
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -97,7 +115,22 @@ function Register() {
                                 />
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
+
                         </Row>
+                        <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+                            <Form.Label>Mobile</Form.Label>
+                            <InputGroup hasValidation>
+                                <InputGroup.Text id="inputGroupPrepend">+91</InputGroup.Text>
+                                <Form.Control
+                                    type="tel"
+                                    placeholder="Mobile Number"
+                                    aria-describedby="inputGroupPrepend"
+                                    name='phoneNumber'
+                                    onChange={onMobilechangeListener}
+                                    required
+                                />
+                            </InputGroup>
+                        </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Password</Form.Label>
                             <Form.Control required type="password" onChange={onValueChangeListener} placeholder="Minimum 8 characters" name='password' minLength={8} />

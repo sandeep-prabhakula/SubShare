@@ -1,5 +1,6 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../redux/hooks/hooks";
 
 type Route = {
     name: string;
@@ -11,7 +12,8 @@ function route(name: string, path: string):Route {
 }
 
 export default function UserAccount(): JSX.Element {
-
+    const user = useAppSelector((state)=>state.userReducer)
+    console.log(user)
     const childRoutes: Route[] = [
         route("Shared Subscriptions", "shared-subscriptions"),
         route("Joined Subscriptions", "joined-subscriptions"),
@@ -29,7 +31,7 @@ export default function UserAccount(): JSX.Element {
     return <Container className="pb-5">
         <Row className="mt-5 justify-content-center">
             <Col lg="3">
-                <span className="h1">Hi, Ravi</span>
+                <span className="h1">Hi,{user} </span>
             </Col>
             <Col lg="6"></Col>
         </Row>
